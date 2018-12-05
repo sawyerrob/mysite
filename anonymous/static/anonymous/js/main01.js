@@ -2125,7 +2125,7 @@
     // register event handlers
     this._core.$element.on(this._handlers);
 
-    this._core.$element.on('click.owl.video', '.owl-video-play-icon', $.proxy(function(e) {
+    this._core.$element.on('click.owl.video', '.owl-video-play-media', $.proxy(function(e) {
       this.play(e);
     }, this));
   };
@@ -2220,7 +2220,7 @@
       lazyClass = '',
       settings = this._core.settings,
       create = function(path) {
-        icon = '<div class="owl-video-play-icon"></div>';
+        icon = '<div class="owl-video-play-media"></div>';
 
         if (settings.lazyLoad) {
           tnLink = '<div class="owl-video-tn ' + lazyClass + '" ' + srcType + '="' + path + '"></div>';

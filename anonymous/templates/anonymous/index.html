@@ -5,6 +5,29 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" type="text/css" href="{% static 'anonymous/css/main.css' %}" />
+        <style>
+            .ui-upload {
+                font-size: 100%;
+                width: 180px;
+                background-color: #5AA6ED;
+			    color: #ffffff !important;
+				vertical-align: baseline;
+                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                border-radius: 4px;
+                border: 0;
+                font-family: inherit;
+                cursor: pointer;
+                display: inline-block;
+                height: 2.85rem;
+                line-height: 2.95rem;
+                text-align: center;
+                text-decoration: none;
+                white-space: nowrap;
+                text-transform: uppercase;
+                margin: 0;
+
+            }
+        </style>
 	</head>
 
 	<body>
@@ -33,8 +56,9 @@
 			<section id="banner" data-video="{% static 'anonymous/images/banner' %}">
 				<div class="inner">
 					<h1>Anonymous</h1>
+                    <h1>秘密花园</h1>
 					<p>我怕我做得不好，让你觉得爱情不过如此！<br />
-					I'm afraid I'm not doing well enough </a> to make you feel that love is just like this.</a>.</p>
+					I'm afraid I'm not good enough </a>for you to appreciate love</a>.</p>
 					<a href="#footer" class="button special scrolly">Get Started</a>
 				</div>
 			</section>
@@ -159,7 +183,7 @@
 							<div class="content">
 								<h2 class="align-center">WRITE DOWN YOUR SECRET HERE</h2>
 								<hr />
-								<form action="elements" method="post">
+								<form action='elements' method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
 									<div class="field half first">
 										<label for="name">Nickname</label>
@@ -173,10 +197,10 @@
 										<label for="dept">Type</label>
 										<div class="select-wrapper">
 											<select name="dept" id="dept">
-												<option value="1">Secret</option>
-												<option value="2">emotion</option>
-												<option value="3">mood</option>
-												<option value="4">what ever!</option>
+												<option value="Secret">Secret</option>
+												<option value="emotion">emotion</option>
+												<option value="mood">mood</option>
+												<option value="what ever!">what ever!</option>
 											</select>
 										</div>
 									</div>
@@ -187,16 +211,18 @@
                                     <div class="field">
 										<label for="dept">gender</label>
 										<div class="select-wrapper">
-											<select name="gender" id="dept">
-												<option value="1">I'm Boy</option>
-												<option value="2">I'm Girl</option>
+											<select name="gender" id="gender">
+												<option value="Boy">I'm Boy</option>
+												<option value="Girl">I'm Girl</option>
 											</select>
 										</div>
 									</div>
 									<ul class="actions align-center">
-										<li><input value="Send Message" class="button special" type="submit"></li>
-									</ul>
-
+                                    <label class="ui-upload">upload icon
+                                        <input type="file" name='avatar' style="display: none" />
+                                    </label>
+                                    <li><input value="Send Message" class="button special" type="submit"></li>
+                                    </ul>
 								</form>
 							</div>
 						</div>
